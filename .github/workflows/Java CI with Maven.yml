@@ -37,9 +37,9 @@ jobs:
         cd tpFinal
         ls -lah
         result=$(mvn test)
-        echo "'result_test<<EOF'" >> $GITHUB_ENV
+        echo 'result_test<<EOF' >> $GITHUB_ENV
         echo $result >> $GITHUB_ENV
-        echo "'EOF'" >> $GITHUB_ENV
+        echo 'EOF' >> $GITHUB_ENV
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2
       env:
