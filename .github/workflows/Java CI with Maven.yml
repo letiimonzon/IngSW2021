@@ -21,6 +21,8 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
+    - name: list directory
+      run: ls -lah
     - name: Build with Maven
       run: mvn test
       
