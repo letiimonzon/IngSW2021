@@ -33,12 +33,13 @@ jobs:
       run: |
         echo "${{ env.action_state }}" # This will output 'yellow'
     - name: Build with Maven
-      id: step_three
       run: |
         cd tpFinal
         ls -lah
         result=$(mvn test)
-        echo "result_test=${result}" >> $GITHUB_ENV
+        echo "'result_test<<EOF'" >> $GITHUB_ENV
+        echo $result >> $GITHUB_ENV
+        echo "'EOF'" >> $GITHUB_ENV
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2
       env:
