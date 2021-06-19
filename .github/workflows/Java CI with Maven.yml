@@ -23,15 +23,6 @@ jobs:
         distribution: 'adopt'
     - name: list directory
       run: ls -lah
-    - name: Set the value
-      id: step_one
-      run: |
-        var="yellow"
-        echo "action_state=$var" >> $GITHUB_ENV
-    - name: Use the value
-      id: step_two
-      run: |
-        echo "${{ env.action_state }}" # This will output 'yellow'
     - name: Build with Maven
       run: |
         cd tpFinal
@@ -46,5 +37,5 @@ jobs:
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        
+        SLACK_MESSAGE: ${{ env.result_test }}
       
