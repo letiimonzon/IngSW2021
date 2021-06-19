@@ -28,12 +28,13 @@ jobs:
         cd tpFinal
         ls -lah
         result=$(mvn test)
+        echo "::set-env name=result_test::$result"
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: mensaje
     - name: test echo
-      run: echo $result
+      run: echo $result_test
         
       
