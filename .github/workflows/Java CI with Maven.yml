@@ -32,6 +32,8 @@ jobs:
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_MESSAGE: ${{ result }}
+        SLACK_MESSAGE: mensaje
+    - name: test echo
+      run: echo $result
         
       
