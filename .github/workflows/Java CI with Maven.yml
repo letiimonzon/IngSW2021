@@ -36,7 +36,7 @@ jobs:
       run: |
         cd tpFinal
         ls -lah
-        result=$(mvn test)
+        result=$(mvn test -B)
         echo 'result_test<<EOF' >> $GITHUB_ENV
         echo $result >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
