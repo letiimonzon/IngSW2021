@@ -33,6 +33,7 @@ jobs:
       run: |
         echo "${{ env.action_state }}" # This will output 'yellow'
     - name: Build with Maven
+      id: step_three
       run: |
         cd tpFinal
         ls -lah
