@@ -24,6 +24,5 @@ jobs:
     - name: list directory
       run: ls -lah
     - name: Build with Maven
-      run: cd tpFinal
       run: mvn test
       
