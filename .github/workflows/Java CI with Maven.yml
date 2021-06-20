@@ -29,15 +29,17 @@ jobs:
         ls -lah
         mvn test
     - name: test success
-      if: success() 
+      if: success()
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_MESSAGE: BUILD SUCCESS
+        SLACK_MESSAGE: ${{ job.status }} 
+        SLACK_COLOR : $ {{ job.status }}
     - name: test success
       if: failure() 
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_MESSAGE: BUILD FAILD
+        SLACK_MESSAGE: ${{ job.status }} 
+        SLACK_COLOR : $ {{ job.status }}
       
