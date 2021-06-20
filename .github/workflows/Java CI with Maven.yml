@@ -27,19 +27,19 @@ jobs:
       run: |
         cd tpFinal
         ls -lah
-        mvn test
+        mvn test -B
     - name: test success
       if: success()
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: BUILD SUCCESS 
-        SLACK_COLOR : green
+        SLACK_COLOR : 0FBD04
     - name: test failure
       if: failure() 
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: BUILD FAILURE 
-        SLACK_COLOR : red
+        SLACK_COLOR : FF0000
       
