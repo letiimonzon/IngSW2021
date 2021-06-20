@@ -27,15 +27,17 @@ jobs:
       run: |
         cd tpFinal
         ls -lah
-        result=$(mvn test -B)
-        echo 'result_test<<EOF' >> $GITHUB_ENV
-        echo $result >> $GITHUB_ENV
-        echo 'EOF' >> $GITHUB_ENV
-    - name: test echo
-      run: echo "${{ env.result_test }}" 
-    - name: Slack Notification
+        mvn test
+    - name: test success
+      if: success() 
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_MESSAGE: ${{ env.result_test }}
+        SLACK_MESSAGE: BUILD SUCCESS
+    - name: test success
+      if: failure() 
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_MESSAGE: BUILD FAILD
       
