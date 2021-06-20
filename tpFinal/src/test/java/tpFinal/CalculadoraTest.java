@@ -8,7 +8,7 @@ public class CalculadoraTest {
   @Test
   public void sumerTest() {
     Calculadora calculadora = new Calculadora();
-    Integer result = 5;
+    Integer result = 6;
     AssertJUnit.assertEquals(result, calculadora.sumer(3, 2));
   }
 }
