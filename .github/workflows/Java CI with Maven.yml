@@ -42,4 +42,12 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: BUILD FAILURE 
         SLACK_COLOR : FF0000
+    - name: Deploy to Azure Web App
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'testjavadeploy'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ccf46b4c22ba4344aa89ad2d5b3c5cb7 }}
+        package: '*.jar'
       
