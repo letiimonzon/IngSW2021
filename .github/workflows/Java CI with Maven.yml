@@ -27,7 +27,7 @@ jobs:
       run: |
         cd tpFinal
         ls -lah
-        mvn test -B
+        mvn package -B
     - name: test success
       if: success()
       uses: rtCamp/action-slack-notify@v2
@@ -46,7 +46,7 @@ jobs:
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
       with:
-        name: java-app
+        name: java-app2
         path: '${{ github.workspace }}/tpFinal/target/*.jar'
 
   deploy:
@@ -60,7 +60,7 @@ jobs:
     - name: Download artifact from build job
       uses: actions/download-artifact@v2
       with:
-        name: java-app
+        name: java-app2
 
     - name: Deploy to Azure Web App
       id: deploy-to-webapp
