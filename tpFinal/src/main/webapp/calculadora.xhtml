@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+ <title>ING SW 2020 UTN - FRRe</title>
+</h:head>
+
+<h:body>
+	<h2>CALCULADORA</h2>
+	<h:form id="form1">
+		<p:panelGrid columns="2">
+			<p:outputLabel value="Numero A" />
+			<p:inputNumber value="#{vistaCalculadora.nroA}" />
+			<p:outputLabel value="Numero B" />
+			<p:inputNumber value="#{vistaCalculadora.nroB}" />
+			<p:commandButton update="form1"
+				action="#{vistaCalculadora.clickSumar}" value="Sumar" />
+			<p:outputLabel value="El Resultado es: #{vistaCalculadora.resultado}" />
+		</p:panelGrid>
+	</h:form>
+
+</h:body>
+</html>
