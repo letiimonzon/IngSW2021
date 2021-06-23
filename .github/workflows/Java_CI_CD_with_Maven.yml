@@ -70,3 +70,18 @@ jobs:
           slot-name: 'production'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_c03a8d93dc6042fa95193754ce5f62f1 }}
           package: '*.war'
+          
+      - name: test success
+        if: success()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: DEPLOY SUCCESS 
+          SLACK_COLOR : 0FBD04
+      - name: test failure
+        if: failure() 
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: DEPLOY FAILURE 
+          SLACK_COLOR : FF0000
