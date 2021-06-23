@@ -27,7 +27,7 @@ jobs:
       run: |
         cd tpFinal
         ls -lah
-        mvn test -B
+        mvn package -B
     - name: test success
       if: success()
       uses: rtCamp/action-slack-notify@v2
@@ -42,4 +42,32 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: BUILD FAILURE 
         SLACK_COLOR : FF0000
+        
+    - name: Upload artifact for deployment job
+      uses: actions/upload-artifact@v2
+      with:
+        name: java-app2
+        path: '${{ github.workspace }}/tpFinal/target/*.jar'
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v2
+      with:
+        name: java-app2
+
+    - name: Deploy to Azure Web App
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'testjavadeploy'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ccf46b4c22ba4344aa89ad2d5b3c5cb7 }}
+        package: '*.jar'
       
