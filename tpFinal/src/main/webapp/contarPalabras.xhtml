@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+ <title>ING SW 2021</title>
+</h:head>
+
+<h:body>
+	<h2>CONTAR PALABRAS</h2>
+	<h:form id="form1">
+		<p:panelGrid columns="2">
+			<p:outputLabel value="Ingrese una frase" />
+			<p:inputText value="#{vistaContarPalabras.frase}" />
+			
+			<p:commandButton update="form1"
+				action="#{vistaContarPalabras.clickBoton}" value="CONTAR" />
+			<p:outputLabel value="El Resultado es: #{vistaContarPalabras.result}" />
+		</p:panelGrid>
+	</h:form>
+
+</h:body>
+</html>
