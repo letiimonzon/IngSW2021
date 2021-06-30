@@ -66,7 +66,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'java2'
+          app-name: 'TPFInalMonzon'
           slot-name: 'production'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_c03a8d93dc6042fa95193754ce5f62f1 }}
           package: '*.war'
