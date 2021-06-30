@@ -68,7 +68,7 @@ jobs:
         with:
           app-name: 'TPFInalMonzon'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_c03a8d93dc6042fa95193754ce5f62f1 }}
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_a0c0fe6c3fb24158a6a5bdf8b772bf93 }}
           package: '*.war'
           
       - name: test success
