@@ -8,7 +8,7 @@ public class ContarPalabrasTest {
 	@Test
 	public void contarPalabrasTest() {
 		ContarPalabras pd = new ContarPalabras();
-		Integer result= 1;
+		Integer result= 2;
 		AssertJUnit.assertEquals(result,pd.contarPalabras("hola  mundo" ));
 		
 	}
