@@ -12,5 +12,11 @@ public class ContarPalabrasTest {
 		AssertJUnit.assertEquals(result,pd.contarPalabras("hola  mundo" ));
 		
 	}
+	//public void contarPalabrasTest() {
+	//ContarPalabras pd = new ContarPalabras();
+	//Integer result= 2;
+	//AssertJUnit.assertEquals(result,pd.contarPalabras("hola  mundo" ));
+	
+	//}
 	
 	}
