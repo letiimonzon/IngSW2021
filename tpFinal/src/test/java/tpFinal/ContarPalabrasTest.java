@@ -12,9 +12,5 @@ public class ContarPalabrasTest {
 		AssertJUnit.assertEquals(result,pd.contarPalabras("hola  mundo" ));
 		
 	}
-//	public Integer sumar(Integer a, Integer b) {
-//	return a + b;
-//}
-
 		
 	}

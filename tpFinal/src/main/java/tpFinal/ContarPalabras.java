@@ -7,5 +7,8 @@ public class ContarPalabras {
 		StringTokenizer st = new StringTokenizer(frase);
 		return st.countTokens();
 	}
+//	public Integer sumar(Integer a, Integer b) {
+//	return a + b;
+//}
 
 }
