@@ -9,7 +9,14 @@ public class ContarPalabrasTest {
 	public void contarPalabrasTest() {
 		ContarPalabras pd = new ContarPalabras();
 		Integer result= 2;
-		AssertJUnit.assertEquals(result,pd.contarPalabras("hola         mundo" ));
+		AssertJUnit.assertEquals(result,pd.contarPalabras("hola  mundo" ));
 		
 	}
+	
+	//public void contarPalabrasTest() {
+	//	ContarPalabras pd = new ContarPalabras();
+	//	Integer result= 2;
+	//	AssertJUnit.assertEquals(result,pd.contarPalabras("hola mundo" ));
+		
+	//}
 }
